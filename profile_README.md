@@ -111,11 +111,25 @@
 [![Ragas](https://img.shields.io/badge/Ragas-E92063?style=flat-square)](https://github.com/explodinggradients/ragas)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square)](https://pandas.pydata.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square)](https://streamlit.io)
-[![CI/CD](https://img.shields.io/badge/CI--CD-GitHub_Actions-2088FF?style=flat-square)](https://github.com/features/actions)
+[![CI](https://github.com/coderman002/llm-evaluation-framework/actions/workflows/ci.yml/badge.svg)](https://github.com/coderman002/llm-evaluation-framework/actions)
 
 **Architecture:** Golden dataset generator and LLM-as-a-judge evaluation harness  
 **Stack:** Python · Ragas · Pandas · Streamlit · GitHub Actions  
 **Highlights:** Automated test dataset generation · Interactive results visualization dashboard · Git pre-merge quality gates
+
+---
+
+### 📓 [Azure OpenAI Cookbook](https://github.com/coderman002/azure-openai-cookbook)
+> A comprehensive, production-ready recipe handbook showing enterprise integration patterns with Azure OpenAI and LangChain
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Azure OpenAI](https://img.shields.io/badge/Azure_OpenAI-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com)
+[![LangChain](https://img.shields.io/badge/LangChain-BA7517?style=flat-square)](https://github.com/langchain-ai/langchain)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
+
+**Architecture:** Production integration recipes showing advanced API patterns  
+**Stack:** Python · LangChain-OpenAI · Pydantic · Pillow  
+**Highlights:** Strongly typed JSON structured outputs · Dynamic tool function calling · Multimodal image analysis · Vector cosine similarity embeddings
 
 ---
 
