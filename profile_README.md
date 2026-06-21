@@ -83,7 +83,7 @@
 [![MCP](https://img.shields.io/badge/MCP-Protocol-6B21A8?style=flat-square)](https://modelcontextprotocol.io)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square)](https://fastapi.tiangolo.com)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square)](https://docker.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
+[![CI](https://github.com/coderman002/mcp-tool-server/actions/workflows/ci.yml/badge.svg)](https://github.com/coderman002/mcp-tool-server/actions)
 
 **Architecture:** MCP JSON-RPC Server over Standard I/O or Server-Sent Events (SSE)  
 **Stack:** Python · FastAPI · MCP SDK · Docker  
@@ -96,8 +96,8 @@
 
 [![LangChain](https://img.shields.io/badge/LangChain-BA7517?style=flat-square)](https://github.com/langchain-ai/langchain)
 [![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6B2B?style=flat-square)](https://github.com/chroma-core/chroma)
-[![OpenAI](https://img.shields.io/badge/OpenAI-412AC4?style=flat-square)](https://openai.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square)](https://streamlit.io)
+[![CI](https://github.com/coderman002/rag-document-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/coderman002/rag-document-assistant/actions)
 
 **Architecture:** Hybrid Retrieval (Vector + Keyword) with Reciprocal Rank Fusion (RRF) and re-ranking  
 **Stack:** Python · LangChain · ChromaDB · Streamlit · HuggingFace  
