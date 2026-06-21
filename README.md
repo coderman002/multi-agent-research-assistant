@@ -99,33 +99,39 @@ multi-agent-research-assistant/
 
 ## 🚀 Quick Start
 
-### 1. Clone & install
-
+### 1. Clone the repository
 ```bash
 git clone https://github.com/coderman002/multi-agent-research-assistant.git
 cd multi-agent-research-assistant
-pip install -r requirements.txt
 ```
 
-### 2. Set up environment
-
+### 2. Set up environment variables
 ```bash
 cp .env.example .env
-# Edit .env and fill in your API keys
+# Edit .env and fill in your API keys (e.g. OPENAI_API_KEY, TAVILY_API_KEY)
 ```
 
-Required keys in `.env`:
-```env
-OPENAI_API_KEY=sk-...          # From platform.openai.com
-TAVILY_API_KEY=tvly-...        # Free key from tavily.com
-```
+### 3. Choose your execution method:
 
-### 3. Run the app
-
+#### Option A: Running with Docker (Recommended)
+Run the application instantly using Docker Compose (no local Python setup required):
 ```bash
+# Start the Streamlit app (available at http://localhost:8501)
+docker-compose up --build
+
+# Run the test suite inside the container
+docker-compose run tests
+```
+
+#### Option B: Running with Local Python
+If you prefer to run it locally without Docker:
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
 streamlit run app.py
 ```
-
 Open `http://localhost:8501` → enter a topic → click **🚀 Start Research** → download your report.
 
 ---
@@ -158,6 +164,14 @@ AZURE_OPENAI_API_VERSION=2025-01-01-preview
 
 ## 🧪 Running Tests
 
+### Option A: Running with Docker (Recommended)
+Run tests in an isolated container environment:
+```bash
+docker-compose run tests
+```
+
+### Option B: Running with Local Python
+Install dev dependencies and execute pytest locally:
 ```bash
 pip install -r requirements-dev.txt
 pytest tests/ -v --cov=. --cov-report=term-missing

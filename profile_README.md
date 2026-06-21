@@ -73,7 +73,49 @@
 
 **Architecture:** `Planner → Researcher → Critic → Synthesiser` with an agentic self-improvement loop  
 **Stack:** Python · LangGraph · LangChain · Tavily · GPT-4o · Streamlit  
-**Highlights:** JSON-safe prompt parsing · Azure OpenAI dual support · Live Streamlit UI · Full test suite
+**Highlights:** JSON-safe prompt parsing · Azure OpenAI dual support · Live Streamlit UI · Full test suite · Docker containerized
+
+---
+
+### 🔌 [MCP Tool Server](https://github.com/coderman002/mcp-tool-server)
+> A custom Model Context Protocol (MCP) server that empowers LLM agents with secure local file system tools and mathematical computation
+
+[![MCP](https://img.shields.io/badge/MCP-Protocol-6B21A8?style=flat-square)](https://modelcontextprotocol.io)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square)](https://fastapi.tiangolo.com)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square)](https://docker.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
+
+**Architecture:** MCP JSON-RPC Server over Standard I/O or Server-Sent Events (SSE)  
+**Stack:** Python · FastAPI · MCP SDK · Docker  
+**Highlights:** Multi-tool auto-discovery · Secure path traversal protection · Built-in test client harness
+
+---
+
+### 📚 [RAG Document Assistant](https://github.com/coderman002/rag-document-assistant)
+> Production-grade Retrieval-Augmented Generation (RAG) assistant for complex multi-format document querying and summarization
+
+[![LangChain](https://img.shields.io/badge/LangChain-BA7517?style=flat-square)](https://github.com/langchain-ai/langchain)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6B2B?style=flat-square)](https://github.com/chroma-core/chroma)
+[![OpenAI](https://img.shields.io/badge/OpenAI-412AC4?style=flat-square)](https://openai.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square)](https://streamlit.io)
+
+**Architecture:** Hybrid Retrieval (Vector + Keyword) with Reciprocal Rank Fusion (RRF) and re-ranking  
+**Stack:** Python · LangChain · ChromaDB · Streamlit · HuggingFace  
+**Highlights:** Parent-Document Chunking · Semantic chunk caching · Citation and source attribution metadata
+
+---
+
+### 📊 [LLM Evaluation Framework](https://github.com/coderman002/llm-evaluation-framework)
+> Automated evaluation framework to run robustness, reliability, and quality checks on RAG and agent systems
+
+[![Ragas](https://img.shields.io/badge/Ragas-E92063?style=flat-square)](https://github.com/explodinggradients/ragas)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square)](https://pandas.pydata.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square)](https://streamlit.io)
+[![CI/CD](https://img.shields.io/badge/CI--CD-GitHub_Actions-2088FF?style=flat-square)](https://github.com/features/actions)
+
+**Architecture:** Golden dataset generator and LLM-as-a-judge evaluation harness  
+**Stack:** Python · Ragas · Pandas · Streamlit · GitHub Actions  
+**Highlights:** Automated test dataset generation · Interactive results visualization dashboard · Git pre-merge quality gates
 
 ---
 
