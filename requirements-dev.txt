@@ -1,0 +1,13 @@
+# Dev / Testing dependencies
+# Install with: pip install -r requirements-dev.txt
+# (Assumes you've already installed requirements.txt)
+
+# Testing
+pytest==8.3.4
+pytest-cov==6.0.0
+
+# Linting & formatting
+ruff==0.8.4
+
+# Type checking
+mypy==1.13.0

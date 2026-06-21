@@ -12,7 +12,7 @@ to these lists rather than replace them — critical for accumulating research
 across multiple iterations of the agentic loop.
 """
 
-from typing import Annotated
+from typing import Annotated, Optional
 from typing_extensions import TypedDict
 import operator
 
@@ -43,7 +43,10 @@ class ResearchState(TypedDict):
     search_results: Annotated[list[str], operator.add]
     research_notes: Annotated[list[str], operator.add]
 
-    critique: str
-    final_report: str
+    # Optional fields: absent in the initial state, written by agent nodes.
+    # Using Optional[str] prevents TypedDict type-checker errors when these
+    # keys don't exist yet at graph start.
+    critique: Optional[str]
+    final_report: Optional[str]
     iteration: int
-    status: str
+    status: Optional[str]

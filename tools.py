@@ -130,4 +130,9 @@ class TavilySearchTool:
 # ── Module-level singleton ─────────────────────────────────────────────────────
 # Reuse the same client instance across the app to avoid re-initialising
 # the HTTP session on every search call.
-search_tool = TavilySearchTool() if config.TAVILY_API_KEY else None
+#
+# NOTE: We always instantiate TavilySearchTool here.
+# If TAVILY_API_KEY is missing, __init__ raises a clear EnvironmentError
+# at import time — far better than exposing None and crashing with an
+# AttributeError inside an agent node call.
+search_tool = TavilySearchTool()

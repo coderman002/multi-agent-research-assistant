@@ -20,6 +20,7 @@ LLM Support:
 
 import json
 import logging
+import re
 from typing import Any
 
 from langchain_openai import AzureChatOpenAI, ChatOpenAI
@@ -101,9 +102,12 @@ def planner_node(state: ResearchState) -> dict:
         user_prompt=Prompts.PLANNER_USER.format(topic=state["topic"]),
     )
 
-    # Parse JSON array — strip markdown fences if present
+    # Parse JSON array — strip markdown fences if present.
+    # IMPORTANT: use re.sub() not str.strip(chars) — strip() treats the
+    # argument as a set of individual characters to remove, NOT a substring.
     try:
-        clean = raw_output.strip().strip("```json").strip("```").strip()
+        clean = re.sub(r"^```(?:json)?\s*", "", raw_output.strip())
+        clean = re.sub(r"\s*```$", "", clean).strip()
         queries: list[str] = json.loads(clean)
         if not isinstance(queries, list):
             raise ValueError("Expected a JSON array of strings")
@@ -152,13 +156,15 @@ def researcher_node(state: ResearchState) -> dict:
         logger.info("[Researcher] Query %d/%d: %r", i, len(queries), query)
 
         # Step 1: Execute web search via Tavily
+        # Pre-initialise `formatted` so it is always defined even if an
+        # exception fires before the assignment inside the try block.
+        formatted = "Search failed — no results available for this query."
         try:
             results = search_tool.search(query)
             formatted = search_tool.format_results_for_llm(results)
             all_raw_results.append(f"Query: {query}\n{formatted}")
         except RuntimeError as e:
             logger.error("[Researcher] Search failed: %s", e)
-            formatted = "Search failed — no results available for this query."
 
         # Step 2: LLM extracts and structures key findings
         notes = _invoke_llm(
@@ -229,9 +235,23 @@ def critic_node(state: ResearchState) -> dict:
             and len(line.strip()) > 5
         ]
         logger.info("[Critic] Requesting %d additional queries", len(new_queries))
+
+        # GUARD: if no actionable queries were extracted, force completion
+        # to prevent a silent infinite loop with an empty query list.
+        if not new_queries:
+            logger.warning(
+                "[Critic] No queries extracted from critique — forcing completion "
+                "to avoid infinite loop."
+            )
+            return {
+                "critique": critique,
+                "iteration": iteration + 1,
+                "status": "✅ Research complete (no further gaps identified) — synthesising report",
+            }
+
         return {
             "critique": critique,
-            "search_queries": new_queries if new_queries else [],
+            "search_queries": new_queries,
             "iteration": iteration + 1,
             "status": f"🔄 Iteration {iteration + 1}: filling research gaps",
         }
